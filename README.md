@@ -40,6 +40,8 @@ Drive folder ID of where the folders named by date should be put. This is the ID
 
 If you want it in your `My Drive`, put `root` here.
 
+Now, go to the [Google Developer Console](https://console.developers.google.com/) and create a new project. 
+
 
 Run `start.bat` which will open a blank command prompt window inside of the H:\ directory. Then, type `get.py` and wait for it to finish downloading and uploading.
 
