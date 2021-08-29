@@ -15,5 +15,6 @@ Next, extract this repository's contents into H:\
 Now, open up command prompt and type `python -m pip install bdfr --upgrade` and also `python -m pip install PyDrive`. These are required for the program to run. The rest will be done by the program!
 
 ## Use
-You will need to create a bunch of complicated stuff that I will talk about later
+You will need to create a bunch of complicated stuff that I will talk about later.
+
 Run `start.bat` which will open a blank command prompt window inside of the H:\ directory. Then, type `get.py` and wait for it to finish downloading and uploading.
