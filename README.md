@@ -18,3 +18,6 @@ Now, open up command prompt and type `python -m pip install bdfr --upgrade` and 
 You will need to create a bunch of complicated stuff that I will talk about later.
 
 Run `start.bat` which will open a blank command prompt window inside of the H:\ directory. Then, type `get.py` and wait for it to finish downloading and uploading.
+
+## How it works
+First, the program uses BDFR to download Reddit posts, which can be images, gifs, videos, or even text! Then, it is put into a directory by date **coded by me!!! :)** After that, it is uploaded to Google Drive in a folder named in YYYY-MM-DD format. This entire project took around 3 hours to make.
