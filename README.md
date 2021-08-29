@@ -158,3 +158,25 @@ Run `start.bat` which will open a blank command prompt window inside of the H:\ 
 
 ## How it works
 First, the program uses BDFR to download Reddit posts, which can be images, gifs, videos, or even text! Then, it is put into a directory by date **coded by me!!! :)** After that, it is uploaded to Google Drive in a folder named in YYYY-MM-DD format. This entire project took around 3 hours to make the bare minimum of, and a more optimized version is still being developed! (3 hours so far)
+
+## What do the files do
+### \Database\config.dll
+Created when you first run get.py, contains the date and the subreddit that was used. Needed to prevent duplicate folders and errors, but generally speaking it's safe to delete it after the operation completes.
+
+### Client_secrets.json
+Used to authorize the upload of the files into your Google Drive using the Google Drive API
+
+### config.txt
+Contains your settings for what you want downloaded and uploaded
+
+### get.py
+Main code that will download the files, store them in a temporary folder and upload them to Google Drive
+
+### settings.yaml
+Settings containing your client secret and id, also used to authorize the upload of files into your Google Drive
+
+### start.bat
+Just starts a blank command prompt inside of H:\ so you don't need to open command and type in `H:` manually to get there
+
+### Database\date
+Temporary folder containing the downloaded files. If the operation is completed and you still see it, it is safe to delete it unless the program exited with an error, in which case create an issue above ^
