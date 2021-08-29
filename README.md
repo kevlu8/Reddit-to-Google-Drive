@@ -3,14 +3,56 @@ Bulk download Reddit posts and upload to a Google Drive folder based on date.
 This program uses [PyDrive](https://pypi.org/project/PyDrive/) and [BDFR](https://github.com/aliparlakci/bulk-downloader-for-reddit)
 
 ## Setup
-### This code is terrible, and requires many specific circumstances. If you do not want to go through all of this, watch this repo and wait for me to make it better.
+### This code requires many specific circumstances. If you do not want to go through all of this, watch this repo and wait for me to make it better.
 
 You'll need Python version 3.9+ for this.
 
 First, create a separate partition with ~10 GB of storage. Call it H:\
 ![image](https://user-images.githubusercontent.com/69993704/131233892-eb61c30c-2817-4247-b453-673033acbbfd.png)
 
-Next, extract this repository's contents into H:\
+To do this, open `Create and manage partitions`.
+
+![image](https://user-images.githubusercontent.com/69993704/131237626-26c52691-edbc-41b9-b58b-e54b9036bbfb.png)
+
+Right click on your primary partition and click on shrink volume.
+
+![image](https://user-images.githubusercontent.com/69993704/131237647-7b54bf64-9203-4794-8842-ce08481af27b.png)
+
+When it asks how much you want to shrink it by, type in `10000` (10000 MB = 9.7 GB)
+
+![image](https://user-images.githubusercontent.com/69993704/131237740-b415de25-f66e-492b-aa69-e2ef97090c79.png)
+
+Then, you should see the space become "Unallocated". Right click on it again and click "New Simple Volume", and follow the steps. (I only shrunk mine by 1 GB since I already have a separate partition)
+
+![image](https://user-images.githubusercontent.com/69993704/131237803-3eba8f01-6d13-4dd4-8721-79e051b8f386.png)
+
+Make sure to set your simple volume's to the maximum:
+
+![image](https://user-images.githubusercontent.com/69993704/131237819-c41d2484-2e6b-4db2-8656-99afecde6076.png)
+
+Make sure you also select H for "select label" (I don't have it since I already have H:)
+
+![image](https://user-images.githubusercontent.com/69993704/131237832-5de47e8f-fec4-4025-87d8-de0dc6715816.png)
+
+Format the partition with any name you like (but make sure it's NTFS)
+
+![image](https://user-images.githubusercontent.com/69993704/131237848-5ef5c195-358c-45a5-86f6-50ce40beccf3.png)
+
+Finally, click on finish and wait. Once it's done, you should see H: in This PC!
+
+![image](https://user-images.githubusercontent.com/69993704/131237869-b2413403-868c-4950-9a09-fcc7f8b30f53.png)
+
+If you would like to encrypt & password-protect the contents due to sensitive content or NSFW:
+
+Select the drive and go to Drive Tools at the top menu then click on Bitlocker
+
+![image](https://user-images.githubusercontent.com/69993704/131237898-8277a034-31e2-4613-85f9-bfc7399373c7.png)
+
+Then select "Turn on Bitlocker" and enter a password.
+
+![image](https://user-images.githubusercontent.com/69993704/131237902-059eee97-846c-49e2-b316-74f5c569d6ac.png)
+
+We are finished with drive setup, so next, extract the contents of the repo into H:\
 
 Now, open up command prompt and type `python -m pip install bdfr --upgrade` and also `python -m pip install PyDrive`. These are required for the program to run. The rest will be done by the program!
 
@@ -51,7 +93,9 @@ day
 1-1xxSMUmeZdoKwst052yTzMgcDcT-ZGC
 ```
 
-Now, go to the [Google Developer Console](https://console.developers.google.com/) and create a new project. ![image](https://user-images.githubusercontent.com/69993704/131235246-0b90f44b-8104-4fc5-bd49-71548713cf93.png)
+Now, go to the [Google Developer Console](https://console.developers.google.com/) and create a new project.
+
+![image](https://user-images.githubusercontent.com/69993704/131235246-0b90f44b-8104-4fc5-bd49-71548713cf93.png)
 
 Name it whatever you want then click Create. 
 
@@ -101,4 +145,4 @@ Your H:\ should now look like this:
 Run `start.bat` which will open a blank command prompt window inside of the H:\ directory. Then, type `get.py` and wait for it to finish downloading. Once it finishes, it will prompt you to log in. Just select the account where you want the files to be uploaded and allow access. Then, it will upload. 
 
 ## How it works
-First, the program uses BDFR to download Reddit posts, which can be images, gifs, videos, or even text! Then, it is put into a directory by date **coded by me!!! :)** After that, it is uploaded to Google Drive in a folder named in YYYY-MM-DD format. This entire project took around 3 hours to make the bare minimum of, and a more optimized version is still being developed!
+First, the program uses BDFR to download Reddit posts, which can be images, gifs, videos, or even text! Then, it is put into a directory by date **coded by me!!! :)** After that, it is uploaded to Google Drive in a folder named in YYYY-MM-DD format. This entire project took around 3 hours to make the bare minimum of, and a more optimized version is still being developed! (2 hours so far)
