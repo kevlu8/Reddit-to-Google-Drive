@@ -42,6 +42,15 @@ Drive folder ID of where the folders named by date should be put. This is the ID
 
 If you want it in your `My Drive`, put `root` here.
 
+Here's an example of a good `config.txt` file:
+```
+memes
+100
+top
+day
+1-1xxSMUmeZdoKwst052yTzMgcDcT-ZGC
+```
+
 Now, go to the [Google Developer Console](https://console.developers.google.com/) and create a new project. ![image](https://user-images.githubusercontent.com/69993704/131235246-0b90f44b-8104-4fc5-bd49-71548713cf93.png)
 
 Name it whatever you want then click Create. 
