@@ -60,13 +60,9 @@ We are finished with drive setup, so next, extract the contents of the repo into
 Now, open up command prompt and type `python -m pip install bdfr --upgrade` and also `python -m pip install PyDrive`. These are required for the program to run. The rest will be done by the program!
 
 ## Use
-Open `config.txt` and modify it to your preferences. **DO NOT LEAVE ANY OF THESE BLANK OR EVERYTHING WILL BREAK.** Here's the format:
+Open `parent.txt` and modify it to your preferences. Here's the format:
 ```
-Subreddit
-Post amount
-Sort
-TimeSort
-Parent ID
+Google Drive Parent folder ID
 ``` 
 ### Subreddit:
 Which sub to get posts from. Do not include the `r/`, only include the name. For instance, `pics`
