@@ -6,23 +6,41 @@ from pydrive.drive import GoogleDrive # Needed for uploading to Drive
 import time # Needed for waiting in the program
 from sys import exit # Needed to exit the program
 import shutil # Needed to delete entire directories
+import argparse
+
+print("Reading arguments...")
+parser = argparse.ArgumentParser(description = 'Bulk download posts from Reddit then upload them to Google Drive.')
+parser.add_argument('-s', "--subreddit", help = "The name of the subreddit you want to download from (required)", required = True)
+parser.add_argument('-a', "--amount", help = "How many posts you want to download from the chosen subreddit (required)", required = True)
+parser.add_argument('-S', "--sortvar", help = "The type of sort you would like: hot (default), top, new, rising, controversial")
+parser.add_argument('-t', "--sorttimevar", help = "The time period that you want to sort for: day (default), week, month, year")
+
+args = parser.parse_args()
 
 os.chdir("H:\\")
 
-print("Reading config.txt...")
-fa = open("config.txt", 'r') # Opening config.txt to read configuration
-subreddit = fa.readline()
-amount = fa.readline()
-sortvar = fa.readline()
-sorttimevar = fa.readline()
+subreddit = args.subreddit
+amount = args.amount
+sortvar = args.sortvar
+sorttimevar = args.sorttimevar
+
+if not args.sortvar:
+    sortvar = "hot"
+
+if not args.sorttimevar:
+    sorttimevar = "day"
+
+print("Reading parent.txt...")
+fa = open("parent.txt", 'r') # Opening parent.txt to read configuration
 parent = fa.readline()
-fa.close() 
+fa.close()
 
 subreddit = subreddit.replace("\n", "")
 amount = amount.replace("\n", "")
 sortvar = sortvar.replace("\n", "")
 sorttimevar = sorttimevar.replace("\n", "")
 parent = parent.replace("\n", "") # Getting rid of new lines as to not confuse the computer ("What?! I need to get 100\n posts? I don't know what that is, so I'll just get the maximum amount!")
+subreddit = subreddit.lower() # Lowercasing subreddit to remove config.dll errors and folder conflicts
 
 print("Connecting to Google Drive...")
 gauth = GoogleAuth()           
@@ -37,15 +55,18 @@ os.chdir("H:\Database")
 # Reading config.dll to see if you already used the tool today
 print("Reading \Database\config.dll...")
 if not os.path.isfile('H:\Database\config.dll'):
-   open('config.dll', 'x')
+    print("\Database\config.dll not found! Creating...")
+    fb = open('config.dll', 'x')
+    fb.close()
 
 f = open('config.dll', 'r')
 for line in f:
     line = line.replace("\n", "")
-    if line == date:
-        print("You have already used the tool today! Check your Google Drive to access your files!")
+    if line == date + " " + subreddit:
+        print("You have already used the tool today in the selected subreddit! Check your Google Drive to access your files!")
         print("We wish that we were able to provide this tool for infinite uses every day, however we do not have this function to avoid errors and duplicates.")
-        print("If this was done in error or you halted a download, modify H:\Database\config.dll to remove today's date.")
+        print("If this was done in error or you halted a download, modify H:\Database\config.dll to remove the chosen subreddit under today's date.")
+        print("If you used r/" + subreddit + " today but halted the download, delete the directory and delete the line containing \"" + date + " " + subreddit + "\".")
         os.system("pause")
         exit()
 f.close()
@@ -53,20 +74,36 @@ f.close()
 # Writing the date to config.dll
 print("Writing to \Database\config.dll...")
 fw = open('config.dll', 'a')
-fw.write(date + "\n")
+fw.write(date + " " + subreddit + "\n")
 fw.close()
+
+print("Creating temporary folder...")
 os.mkdir(date)
+
+print("Running download...")
 os.system(command)
 
 os.chdir("H:\\")
 
 # Creating a folder with the date as its name
-print("Creating Google Drive folder...")
-folder_name = date
-folder = drive.CreateFile({'parents': [{'id': parent}], 'title' : folder_name, 'mimeType' : 'application/vnd.google-apps.folder'}) 
-folder.Upload()
+print("Checking if Google Drive folder exists...")
 
-fileID = folder['id'] # ID of the newly created folder
+fileExists = False
+
+file_list = drive.ListFile({'q': "'%s' in parents and trashed=false" % (parent)}).GetList()
+for file1 in file_list:
+  print('title: %s, id: %s' % (file1['title'], file1['id']))
+  if file1['title'] == date:
+      print("Google Drive folder already exists!")
+      fileID = file1['id']
+      fileExists = True
+
+if not fileExists:
+    folder_name = date
+    folder = drive.CreateFile({'parents': [{'id': parent}], 'title' : folder_name, 'mimeType' : 'application/vnd.google-apps.folder'}) 
+    folder.Upload()
+
+    fileID = folder['id'] # ID of the newly created folder
 
 # Uploading the files to Google Drive
 print("Uploading files to Google Drive...")
@@ -82,7 +119,7 @@ os.chdir("H:\\") # Change the directory so we don't get an "In use" error!
 
 time.sleep(5)
 
-shutil.rmtree(deldir) # Delete the folder with all the files in it
+shutil.rmtree(deldir, ignore_errors = True) # Delete the folder with all the files in it
 
 print("Done uploading to drive and removing the directory! Press any key to quit.")
 
