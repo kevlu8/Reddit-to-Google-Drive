@@ -15,7 +15,30 @@ Next, extract this repository's contents into H:\
 Now, open up command prompt and type `python -m pip install bdfr --upgrade` and also `python -m pip install PyDrive`. These are required for the program to run. The rest will be done by the program!
 
 ## Use
-You will need to create a bunch of complicated stuff that I will talk about later.
+Open `config.txt` and modify it to your preferences. **DO NOT LEAVE ANY OF THESE BLANK OR EVERYTHING WILL BREAK.** Here's the format:
+```
+Subreddit
+Post amount
+Sort
+TimeSort
+Parent ID
+``` 
+### Subreddit:
+Which sub to get posts from. Do not include the `r/`, only include the name. For instance, `pics`
+
+### Post Amount:
+How many posts to get. Cannot be over 1000 due to api limitations
+
+### Sort:
+What type of sort to use. Hot, top, new, controversial, rising. Cannot be anything else.
+
+### TimeSort:
+Time period for sorting. Day, week, month, year, all. Cannot be anything else.
+
+### Parent ID:
+Drive folder ID of where the folders named by date should be put. This is the ID of a folder: ![image](https://user-images.githubusercontent.com/69993704/131234603-caf985f7-87f7-4129-9511-a220120c9f6a.png)
+If you want it in your drive, put `root` here.
+
 
 Run `start.bat` which will open a blank command prompt window inside of the H:\ directory. Then, type `get.py` and wait for it to finish downloading and uploading.
 
