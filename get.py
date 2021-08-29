@@ -39,6 +39,7 @@ for line in f:
     if line == date:
         print("You have already used the tool today! Check your Google Drive to access your files!")
         print("We wish that we were able to provide this tool for infinite uses every day, however we do not have this function to avoid errors and duplicates.")
+        print("If this was done in error or you halted a download, modify H:\Database\config.dll to remove today's date.")
         os.system("pause")
         exit()
 f.close()
@@ -62,7 +63,7 @@ fileID = folder['id'] # ID of the newly created folder
 # Uploading the files to Google Drive
 upload_file_list = os.listdir(directory)
 for upload_file in upload_file_list:
-    os.chdir("H:\Database\\" + date + "\hentai\\")
+    os.chdir("H:\Database\\" + date + "\\" + subreddit + "\\")
     gfile = drive.CreateFile({'parents': [{'id': fileID}]})
     gfile.SetContentFile(upload_file)
     print("Uploading " + upload_file + "...")
