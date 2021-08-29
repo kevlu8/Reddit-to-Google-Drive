@@ -37,6 +37,7 @@ Time period for sorting. Day, week, month, year, all. Cannot be anything else.
 
 ### Parent ID:
 Drive folder ID of where the folders named by date should be put. This is the ID of a folder: ![image](https://user-images.githubusercontent.com/69993704/131234603-caf985f7-87f7-4129-9511-a220120c9f6a.png)
+
 If you want it in your `My Drive`, put `root` here.
 
 
