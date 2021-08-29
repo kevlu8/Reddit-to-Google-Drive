@@ -8,7 +8,7 @@ This program uses [PyDrive](https://pypi.org/project/PyDrive/) and [BDFR](https:
 First, create a separate partition with ~10 GB of storage. Call it H:\
 ![image](https://user-images.githubusercontent.com/69993704/131233892-eb61c30c-2817-4247-b453-673033acbbfd.png)
 
-Inside of it, create another folder called "Database". This is where files will temporarily be stored before being uploaded to Google Drive and deleted.
+Next, extract this repository's contents into H:\
 
 Now, open up command prompt and type `python -m pip install bdfr --upgrade` and also `python -m pip install PyDrive`. These are required for the program to run. The rest will be done by the program!
 
