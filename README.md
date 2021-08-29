@@ -62,19 +62,8 @@ Now, open up command prompt and type `python -m pip install bdfr --upgrade` and 
 ## Use
 Open `parent.txt` and modify it to your preferences. Here's the format:
 ```
-Google Drive Parent folder ID
+Parent ID
 ``` 
-### Subreddit:
-Which sub to get posts from. Do not include the `r/`, only include the name. For instance, `pics`
-
-### Post Amount:
-How many posts to get. Cannot be over 1000 due to api limitations.
-
-### Sort:
-What type of sort to use. Hot, top, new, controversial, rising. Cannot be anything else. If you're indecisive, `Hot` is the default sort.
-
-### TimeSort:
-Time period for sorting. Day, week, month, year, all. Cannot be anything else. If you're indecisive, `Day` is the default sort.
 
 ### Parent ID:
 Drive folder ID of where the folders named by date should be put. This is the ID of a folder: 
@@ -83,12 +72,8 @@ Drive folder ID of where the folders named by date should be put. This is the ID
 
 If you want it in your `My Drive`, put `root` here.
 
-Here's an example of a good `config.txt` file:
+Here's an example of a good `parent.txt` file:
 ```
-memes
-100
-top
-day
 1-1xxSMUmeZdoKwst052yTzMgcDcT-ZGC
 ```
 
@@ -153,7 +138,21 @@ Your H:\ should now look like this:
 ![image](https://user-images.githubusercontent.com/69993704/131235452-4515b42e-d191-4d39-be35-d7554185ecb0.png)
 
 
-Run `start.bat` which will open a blank command prompt window inside of the H:\ directory. Then, type `get.py` and wait for it to finish downloading. Once it finishes, it will prompt you to log in. Just select the account where you want the files to be uploaded and allow access. Then, it will upload. 
+Run `start.bat` which will open a blank command prompt window inside of the H:\ directory. Then, type `get.py -s subreddit -a amount -S sort -t timesort` 
+
+### Subreddit:
+Which sub to get posts from. Do not include the `r/`, only include the name. For instance, `pics`
+
+### Post Amount:
+How many posts to get. Cannot be over 1000 due to api limitations.
+
+### Sort:
+What type of sort to use. Hot, top, new, controversial, rising. Cannot be anything else. If you're indecisive, `Hot` is the default sort.
+
+### TimeSort:
+Time period for sorting. Day, week, month, year, all. Cannot be anything else. If you're indecisive, `Day` is the default sort.
+
+Wait for it to finish downloading. Once it finishes, it will prompt you to log in. Just select the account where you want the files to be uploaded and allow access. Then, it will upload. 
 
 ## How it works
 First, the program uses BDFR to download Reddit posts, which can be images, gifs, videos, or even text! Then, it is put into a directory by date **coded by me!!! :)** After that, it is uploaded to Google Drive in a folder named in YYYY-MM-DD format. This entire project took around 3 hours to make the bare minimum of, and a more optimized version is still being developed! (3 hours so far)
@@ -165,7 +164,7 @@ Created when you first run get.py, contains the date and the subreddit that was 
 ### Client_secrets.json
 Used to authorize the upload of the files into your Google Drive using the Google Drive API
 
-### config.txt
+### parent.txt
 Contains your settings for what you want downloaded and uploaded
 
 ### get.py
