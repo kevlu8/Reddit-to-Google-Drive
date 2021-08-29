@@ -1,6 +1,6 @@
 # Reddit to Google Drive
 Bulk download Reddit posts and upload to a Google Drive folder based on date. 
-This program uses [PyDrive](https://pypi.org/project/PyDrive/) and [BDFR](https://github.com/aliparlakci/bulk-downloader-for-reddit)
+This program uses [PyDrive](https://pypi.org/project/PyDrive/) and [BDFR](https://github.com/aliparlakci/bulk-downloader-for-reddit).
 
 ## Setup
 ### This code requires many specific circumstances. If you do not want to go through all of this, watch this repo and wait for me to make it better.
@@ -10,7 +10,7 @@ You'll need Python version 3.9+ for this.
 First, create a separate partition with ~10 GB of storage. Call it H:\
 ![image](https://user-images.githubusercontent.com/69993704/131233892-eb61c30c-2817-4247-b453-673033acbbfd.png)
 
-To do this, open `Create and manage partitions`.
+To do this, open `Create and format partitions`.
 
 ![image](https://user-images.githubusercontent.com/69993704/131237626-26c52691-edbc-41b9-b58b-e54b9036bbfb.png)
 
@@ -108,14 +108,24 @@ Now, click on "Enable APIs and Services"
 Search for Google Drive and enable Google Drive API
 
 ![image](https://user-images.githubusercontent.com/69993704/131235309-aac10fa4-27b3-4ccd-bd96-ac968dc87303.png)
+
 ![image](https://user-images.githubusercontent.com/69993704/131235315-44ba89eb-a448-4292-ae55-d851da1afaaf.png)
 
-After you get redirected to this screen, click on "Create Credentials" ![image](https://user-images.githubusercontent.com/69993704/131235324-6312e5f1-60b7-4641-a75b-979650f03a3d.png)
+After you get redirected to this screen, click on "Create Credentials"
+
+![image](https://user-images.githubusercontent.com/69993704/131235324-6312e5f1-60b7-4641-a75b-979650f03a3d.png)
 
 Choose these settings: 
-![image](https://user-images.githubusercontent.com/69993704/131235331-9c6eb152-00df-4506-aa52-dbba2f8a6a73.png) then click next.
 
-Here, you can name your app whatever you want and enter your email in the 2 fields. Also pick an icon. ![image](https://user-images.githubusercontent.com/69993704/131235349-cc236206-fa99-4a54-b683-20b4d12feee7.png) I'm using a throwaway email so there's no need to try to email me.
+![image](https://user-images.githubusercontent.com/69993704/131235331-9c6eb152-00df-4506-aa52-dbba2f8a6a73.png) 
+
+then click next.
+
+Here, you can name your app whatever you want and enter your email in the 2 fields. Also pick an icon.
+
+![image](https://user-images.githubusercontent.com/69993704/131235349-cc236206-fa99-4a54-b683-20b4d12feee7.png) 
+
+I'm using a throwaway email so there's no need to try to email me.
 
 When it asks you for scopes, just ignore it and click continue.
 
@@ -123,7 +133,9 @@ In OAuth Client ID, pick these settings:
 
 ![image](https://user-images.githubusercontent.com/69993704/131235361-15c1b05c-6d04-45d4-96df-432f76b5192e.png)
 
-When you see this, click done. ![image](https://user-images.githubusercontent.com/69993704/131235365-cfd81c76-06f1-4dc7-8ce7-858d4dbd6ad6.png)
+When you see this, click done. 
+
+![image](https://user-images.githubusercontent.com/69993704/131235365-cfd81c76-06f1-4dc7-8ce7-858d4dbd6ad6.png)
 
 Now, download the JSON. It will be named something really long. Just change that to `client_secrets.json` and move it to H:\
 
@@ -145,4 +157,4 @@ Your H:\ should now look like this:
 Run `start.bat` which will open a blank command prompt window inside of the H:\ directory. Then, type `get.py` and wait for it to finish downloading. Once it finishes, it will prompt you to log in. Just select the account where you want the files to be uploaded and allow access. Then, it will upload. 
 
 ## How it works
-First, the program uses BDFR to download Reddit posts, which can be images, gifs, videos, or even text! Then, it is put into a directory by date **coded by me!!! :)** After that, it is uploaded to Google Drive in a folder named in YYYY-MM-DD format. This entire project took around 3 hours to make the bare minimum of, and a more optimized version is still being developed! (2 hours so far)
+First, the program uses BDFR to download Reddit posts, which can be images, gifs, videos, or even text! Then, it is put into a directory by date **coded by me!!! :)** After that, it is uploaded to Google Drive in a folder named in YYYY-MM-DD format. This entire project took around 3 hours to make the bare minimum of, and a more optimized version is still being developed! (3 hours so far)
