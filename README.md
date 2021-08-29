@@ -98,7 +98,7 @@ Your H:\ should now look like this:
 ![image](https://user-images.githubusercontent.com/69993704/131235452-4515b42e-d191-4d39-be35-d7554185ecb0.png)
 
 
-Run `start.bat` which will open a blank command prompt window inside of the H:\ directory. Then, type `get.py` and wait for it to finish downloading and uploading.
+Run `start.bat` which will open a blank command prompt window inside of the H:\ directory. Then, type `get.py` and wait for it to finish downloading. Once it finishes, it will prompt you to log in. Just select the account where you want the files to be uploaded and allow access. Then, it will upload. 
 
 ## How it works
 First, the program uses BDFR to download Reddit posts, which can be images, gifs, videos, or even text! Then, it is put into a directory by date **coded by me!!! :)** After that, it is uploaded to Google Drive in a folder named in YYYY-MM-DD format. This entire project took around 3 hours to make the bare minimum of, and a more optimized version is still being developed!
