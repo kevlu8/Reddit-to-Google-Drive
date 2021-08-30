@@ -78,7 +78,14 @@ fw.write(date + " " + subreddit + "\n")
 fw.close()
 
 print("Creating temporary folder...")
-os.mkdir(date)
+folderExists = False
+for folders in os.listdir("H:\Database"):
+    if folders == date:
+        print("Folder already exists!")
+        folderExists = True
+
+if not folderExists:
+    os.mkdir(date)
 
 print("Running download...")
 os.system(command)
@@ -92,7 +99,7 @@ fileExists = False
 
 file_list = drive.ListFile({'q': "'%s' in parents and trashed=false" % (parent)}).GetList()
 for file1 in file_list:
-  print('title: %s, id: %s' % (file1['title'], file1['id']))
+  print('Searching folders... Title = %s, ID = %s' % (file1['title'], file1['id']))
   if file1['title'] == date:
       print("Google Drive folder already exists!")
       fileID = file1['id']
@@ -105,7 +112,28 @@ if not fileExists:
 
     fileID = folder['id'] # ID of the newly created folder
 
+fileExists = False
+
+file_list = drive.ListFile({'q': "'%s' in parents and trashed=false" % (fileID)}).GetList()
+for file2 in file_list:
+  print('Searching folders... Title = %s, ID = %s' % (file2['title'], file2['id']))
+  if file2['title'] == date:
+      print("Google Drive folder already exists!")
+      fileID = file2['id']
+      fileExists = True
+
+if not fileExists:
+    folder_name = subreddit
+    folder = drive.CreateFile({'parents': [{'id': fileID}], 'title' : folder_name, 'mimeType' : 'application/vnd.google-apps.folder'})
+    folder.Upload()
+
+    fileID = folder['id']
+
+fileID = folder['id']
+
 # Uploading the files to Google Drive
+time.sleep(5)
+
 print("Uploading files to Google Drive...")
 upload_file_list = os.listdir(directory)
 for upload_file in upload_file_list:
@@ -117,9 +145,15 @@ for upload_file in upload_file_list:
 
 os.chdir("H:\\") # Change the directory so we don't get an "In use" error!
 
+os.system("del /f /q " + directory)
+
 time.sleep(5)
 
-shutil.rmtree(deldir, ignore_errors = True) # Delete the folder with all the files in it
+# shutil.rmtree(deldir, ignore_errors = True) # Delete the folder with all the files in it
+
+# shutil.rmtree(directory)
+
+os.rmdir(deldir)
 
 print("Done uploading to drive and removing the directory! Press any key to quit.")
 
