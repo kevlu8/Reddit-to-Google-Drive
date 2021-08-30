@@ -145,7 +145,7 @@ for upload_file in upload_file_list:
 
 os.chdir("H:\\") # Change the directory so we don't get an "In use" error!
 
-os.system("del /f /q " + directory)
+os.system("del /f /q /s" + deldir)
 
 time.sleep(5)
 
