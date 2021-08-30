@@ -9,7 +9,7 @@ You'll need Python version 3.9+ for this.
 
 First, create a separate partition with at least 5 GB of storage. Call it H:\
 
-Or, if you have a USB drive over 4 GB, you can insert that and rename it to H:\ and extract this repo to it.
+Or, if you have a USB drive over 4 GB, you can insert that and rename it to H:\ and extract this repo to it. Read below for how to do that.
 
 ![image](https://user-images.githubusercontent.com/69993704/131233892-eb61c30c-2817-4247-b453-673033acbbfd.png)
 
@@ -54,6 +54,16 @@ Select the drive and go to Drive Tools at the top menu then click on Bitlocker
 Then select "Turn on Bitlocker" and enter a password.
 
 ![image](https://user-images.githubusercontent.com/69993704/131237902-059eee97-846c-49e2-b316-74f5c569d6ac.png)
+
+## USB
+
+If you want to use a USB, go to `Create and Format Partitions`, right click on your USB and click on "Change letter"
+
+![image](https://user-images.githubusercontent.com/69993704/131402103-d1907447-7264-4a65-99be-461e46a41aa2.png)
+
+Then click on change and select H:\
+
+![image](https://user-images.githubusercontent.com/69993704/131402229-17b1e8ea-3195-4286-ac0e-80f4308afe69.png)
 
 We are finished with drive setup, so next, extract the contents of the repo into H:\
 
