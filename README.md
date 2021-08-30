@@ -57,7 +57,7 @@ Then select "Turn on Bitlocker" and enter a password.
 
 We are finished with drive setup, so next, extract the contents of the repo into H:\
 
-Now, open up command prompt and type `python -m pip install bdfr --upgrade` and also `python -m pip install PyDrive`. These are required for the program to run. The rest will be done by the program!
+Now, open setup.py. This program downloads the required libraries which are `PyDrive` and `BDFR (Bulk Downloader for Reddit)` These are required for the program to run. The rest will be done by the program!
 
 ## Use
 Open `parent.txt` and modify it to your preferences. Here's the format:
@@ -135,8 +135,7 @@ Now, go to `settings.yaml` and change the client_id to your client id and the cl
 
 Your H:\ should now look like this:
 
-![image](https://user-images.githubusercontent.com/69993704/131235452-4515b42e-d191-4d39-be35-d7554185ecb0.png)
-
+![image](https://user-images.githubusercontent.com/69993704/131275497-da0e14e3-2e7a-4d69-96ce-717ec2207919.png)
 
 Run `start.bat` which will open a blank command prompt window inside of the H:\ directory. Then, type `get.py -s subreddit -a amount -S sort -t timesort` 
 
