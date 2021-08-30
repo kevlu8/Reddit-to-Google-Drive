@@ -177,3 +177,6 @@ Just starts a blank command prompt inside of H:\ so you don't need to open comma
 
 ### Database\date
 Temporary folder containing the downloaded files. If the operation is completed and you still see it, it is safe to delete it unless the program exited with an error, in which case create an issue above ^
+
+### remove.py
+Delete the Database\date folder if it wasn't already deleted in the process.
