@@ -145,7 +145,7 @@ Now, go to `settings.yaml` and change the client_id to your client id and the cl
 
 Your H:\ should now look like this:
 
-![image](https://user-images.githubusercontent.com/69993704/131275497-da0e14e3-2e7a-4d69-96ce-717ec2207919.png)
+![image](https://user-images.githubusercontent.com/69993704/131583564-cc9cdc33-88ee-45f9-953f-3d3b95424d26.png)
 
 Run `start.bat` which will open a blank command prompt window inside of the H:\ directory. Then, type `get.py -s subreddit -a amount -S sort -t timesort` 
 
@@ -164,7 +164,7 @@ Time period for sorting. Day, week, month, year, all. Cannot be anything else. I
 Wait for it to finish downloading. Once it finishes, it will prompt you to log in. Just select the account where you want the files to be uploaded and allow access. Then, it will upload. 
 
 ## How it works
-First, the program uses BDFR to download Reddit posts, which can be images, gifs, videos, or even text! Then, it is put into a directory by date **coded by me!!! :)** After that, it is uploaded to Google Drive in a folder named in YYYY-MM-DD format. This entire project took around 3 hours to make the bare minimum of, and a more optimized version is still being developed! (3 hours so far)
+First, the program uses BDFR to download Reddit posts, which can be images, gifs, videos, or even text! Then, it is put into a directory by date **coded by me!!! :)** After that, it is uploaded to Google Drive in a folder named in YYYY-MM-DD format. This entire project took around 3 hours to make the bare minimum of, and a more optimized version is still being developed! (8 hours so far)
 
 ## What do the files do
 ### \Database\config.dll
@@ -187,6 +187,3 @@ Just starts a blank command prompt inside of H:\ so you don't need to open comma
 
 ### Database\date
 Temporary folder containing the downloaded files. If the operation is completed and you still see it, it is safe to delete it unless the program exited with an error, in which case create an issue above ^
-
-### remove.py
-Delete the Database\date folder if it wasn't already deleted in the process.
