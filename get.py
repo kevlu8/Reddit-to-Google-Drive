@@ -116,11 +116,12 @@ fileExists = False
 
 file_list = drive.ListFile({'q': "'%s' in parents and trashed=false" % (fileID)}).GetList()
 for file2 in file_list:
-  print('Searching folders... Title = %s, ID = %s' % (file2['title'], file2['id']))
-  if file2['title'] == date:
-      print("Google Drive folder already exists!")
-      fileID = file2['id']
-      fileExists = True
+  if not fileExists:
+    print('Searching folders... Title = %s, ID = %s' % (file2['title'], file2['id']))
+    if file2['title'] == date:
+        print("Google Drive folder already exists!")
+        fileID = file2['id']
+        fileExists = True
 
 if not fileExists:
     folder_name = subreddit
@@ -140,21 +141,21 @@ for upload_file in upload_file_list:
     os.chdir("H:\Database\\" + date + "\\" + subreddit + "\\")
     gfile = drive.CreateFile({'parents': [{'id': fileID}]})
     gfile.SetContentFile(upload_file)
-    print("Uploading " + upload_file + "...")
-    gfile.Upload()
+    try:
+        gfile.Upload()
+    finally:
+        gfile.content.close()
+    if gfile.uploaded:
+        print("Uploaded " + upload_file + " successfully!")
 
 os.chdir("H:\\") # Change the directory so we don't get an "In use" error!
 
-os.system("del /f /q /s" + deldir)
+# os.system("remove.py")
 
-time.sleep(5)
-
-# shutil.rmtree(deldir, ignore_errors = True) # Delete the folder with all the files in it
+shutil.rmtree(deldir) # Delete the folder with all the files in it
 
 # shutil.rmtree(directory)
 
-os.rmdir(deldir)
+# os.rmdir(deldir)
 
-print("Done uploading to drive and removing the directory! Press any key to quit.")
-
-os.system("pause")
+os.system('pause')
