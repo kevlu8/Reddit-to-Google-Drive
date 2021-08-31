@@ -192,4 +192,7 @@ Settings containing your client secret and id, also used to authorize the upload
 Just starts a blank command prompt inside of H:\ so you don't need to open command and type in `H:` manually to get there
 
 ### \Database\date
-Temporary folder containing the downloaded files. If the operation is completed and you still see it, it is safe to delete it unless the program exited with an error, in which case create an issue above ^
+Temporary folder containing the downloaded files. You don't see this in the repository because it is created when you run `get.py`. If the operation is completed and you still see it, it is safe to delete it. If the program exited with an error, create an issue above ^
+
+### \Database\Dummy.txt
+Just a dummy file to prevent Github from not displaying the \Database\ folder.
