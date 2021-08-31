@@ -163,6 +163,12 @@ Time period for sorting. Day, week, month, year, all. Cannot be anything else. I
 
 Wait for it to finish downloading. Once it finishes, it will prompt you to log in. Just select the account where you want the files to be uploaded and allow access. Then, it will upload. 
 
+Here's an example of a valid command to download the top 100 memes of all time:
+
+```
+get.py -s memes -a 100 -S top -t all
+```
+
 ## How it works
 First, the program uses BDFR to download Reddit posts, which can be images, gifs, videos, or even text! Then, it is put into a directory by date **coded by me!!! :)** After that, it is uploaded to Google Drive in a folder named in YYYY-MM-DD format. This entire project took around 3 hours to make the bare minimum of, and a more optimized version is still being developed! (8 hours so far)
 
@@ -185,5 +191,5 @@ Settings containing your client secret and id, also used to authorize the upload
 ### start.bat
 Just starts a blank command prompt inside of H:\ so you don't need to open command and type in `H:` manually to get there
 
-### Database\date
+### \Database\date
 Temporary folder containing the downloaded files. If the operation is completed and you still see it, it is safe to delete it unless the program exited with an error, in which case create an issue above ^
