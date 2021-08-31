@@ -7,9 +7,9 @@ This program uses [PyDrive](https://pypi.org/project/PyDrive/) and [BDFR](https:
 
 You'll need Python version 3.9+ for this.
 
-First, create a separate partition with at least 5 GB of storage. Call it H:\
+First, create a separate partition with at least 1 GB of storage. Call it H:\
 
-Or, if you have a USB drive over 4 GB, you can insert that and rename it to H:\ and extract this repo to it. Read below for how to do that.
+Or, if you have a USB drive over 1 GB, you can insert that and rename it to H:\ and extract this repo to it. Read below for how to do that.
 
 ![image](https://user-images.githubusercontent.com/69993704/131233892-eb61c30c-2817-4247-b453-673033acbbfd.png)
 
