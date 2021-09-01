@@ -21,11 +21,11 @@ Right click on your primary partition and click on shrink volume.
 
 ![image](https://user-images.githubusercontent.com/69993704/131237647-7b54bf64-9203-4794-8842-ce08481af27b.png)
 
-When it asks how much you want to shrink it by, type in `10000` (10000 MB = 9.7 GB)
+When it asks how much you want to shrink it by, type in `1000` (1000 MB = 0.97 GB)
 
 ![image](https://user-images.githubusercontent.com/69993704/131237740-b415de25-f66e-492b-aa69-e2ef97090c79.png)
 
-Then, you should see the space become "Unallocated". Right click on it again and click "New Simple Volume", and follow the steps. (I only shrunk mine by 1 GB since I already have a separate partition)
+Then, you should see the space become "Unallocated". Right click on it again and click "New Simple Volume", and follow the steps.
 
 ![image](https://user-images.githubusercontent.com/69993704/131237803-3eba8f01-6d13-4dd4-8721-79e051b8f386.png)
 
