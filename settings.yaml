@@ -1,12 +1,15 @@
 client_config_backend: settings
 client_config:
-	client_id: id here
-	client_secret: secret here
+  client_id: id_here
+  client_secret: secret_here
+  token_uri: https://oauth2.googleapis.com/token
+  auth_uri: https://accounts.google.com/o/oauth2/auth
+  redirect_uri: http://localhost:8080
 save_credentials: True
 save_credentials_backend: file
 save_credentials_file: credentials.json
 
-get_refresh_token = True
+get_refresh_token: True
 
 oauth_scope:
-	- https://www.googleapis.com/auth/drive.file
+  - https://www.googleapis.com/auth/drive.file
